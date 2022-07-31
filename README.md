@@ -49,18 +49,12 @@ apprise_services = [
 
 # Checking for rain
 By default, the program checks for rain every 10 minutes, looking at each minute
-over the next 10 minutes.  If no rain is detected in this window, or the
-probability of rain is below a given threshold (e.g. 40%), it goes to sleep for
-10 minutes and repeats forever.
+over the next 10 minutes.
 
-If rain is detected, a notification is sent to the list of Apprise services.
+If rain is detected in this window, a notification is sent to the list of Apprise services.
 It'll look something like this:
 > **Rain starting in 6 minutes**
 >
 > Duration: 40 minutes
 >
 > Probability: 55% chance
-
-It'll then check when the rain is expected to stop, and go to sleep until then.
-For example, if rain is starting in 6 minutes and expected to stop 40 minutes
-later, the program will stop checking for rain for 40 minutes.
