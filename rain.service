@@ -1,0 +1,12 @@
+# Copy this file to /etc/systemd/system/
+[Unit]
+Description=Rain notifier
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/home/pi/projects/rain-notifier/venv/bin/python /home/pi/projects/rain-notifier/rain-notifier/main.py
+
+[Install]
+WantedBy=multi-user.target
