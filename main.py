@@ -9,8 +9,7 @@ import matplotlib.dates as mdates
 
 def get_weather():
     """
-    Fetches the weather from an API and checks if there's a high chance of
-    rain soon.
+    Fetches the weather from an API
     """
     latitude = settings.latitude
     longitude = settings.longitude
