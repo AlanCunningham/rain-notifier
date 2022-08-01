@@ -82,6 +82,7 @@ def main():
                 plt.grid()
                 plt.ylim(0, 100)
                 plt.xlim(0, number_of_minutes)
+                plt.fill_between(minute_list, rain_chance_list)
                 plt.plot(minute_list, rain_chance_list, linewidth=3.0)
                 plt.savefig("rain_graph.png")
 
