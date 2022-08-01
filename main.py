@@ -117,7 +117,6 @@ def main():
                 app_message_lines = [
                     f"Duration: {rain_stopping_time_difference_mins} minutes",
                     f"Probabiity: {rain_probability}%",
-                    f"{minutely_weather['summary']}",
                 ]
                 app_message = "\n".join(app_message_lines)
                 print(f"{app_title}\n{app_message}")
@@ -138,7 +137,9 @@ def main():
                 plt.ylim(0, 100)
                 plt.xlim(0, number_of_minutes)
                 plt.fill_between(minute_list, rain_chance_list)
-                plt.title(app_title)
+                # Set the title as the DarkSky summary (and remove the
+                # full stop on the end)
+                plt.title(minutely_weather["summary"][:-1])
                 plt.xlabel("Minutes")
                 plt.ylabel("Chance of rain")
                 plt.plot(minute_list, rain_chance_list, linewidth=3.0)
