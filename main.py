@@ -137,9 +137,10 @@ def main():
                 plt.ylim(0, 100)
                 plt.xlim(0, number_of_minutes)
                 plt.fill_between(minute_list, rain_chance_list)
-                # Set the title as the DarkSky summary (and remove the
-                # full stop on the end)
-                plt.title(minutely_weather["summary"][:-1])
+                # Format the Dark Sky summary - remove full-stop-abbreviation
+                # (e.g. "20 min." becomes "20 min")
+                formatted_summary = minutely_weather["summary"].replace(".", "")
+                plt.title(formatted_summary)
                 plt.xlabel("Minutes")
                 plt.ylabel("Chance of rain")
                 plt.plot(minute_list, rain_chance_list, linewidth=3.0)
