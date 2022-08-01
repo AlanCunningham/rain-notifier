@@ -67,25 +67,6 @@ def main():
             if is_still_raining:
                 print("It's still raining - don't send another notification")
             else:
-                # Create the minutely rain graph
-                minute_list = []
-                rain_chance_list = []
-                number_of_minutes = 60
-                for index, minute in enumerate(minutely_weather_data):
-                    if index == number_of_minutes:
-                        break
-                    minute_list.append(index)
-                    rain_chance_list.append(minute["precipProbability"] * 100)
-
-                # Plot the graph
-                plt.figure()
-                plt.grid()
-                plt.ylim(0, 100)
-                plt.xlim(0, number_of_minutes)
-                plt.fill_between(minute_list, rain_chance_list)
-                plt.plot(minute_list, rain_chance_list, linewidth=3.0)
-                plt.savefig("rain_graph.png")
-
                 # Find out when the rain is stopping
                 # Default rain_stopping_index - if this remains unchanged, then
                 # assume it's going to rain for the hour
@@ -140,6 +121,28 @@ def main():
                 ]
                 app_message = "\n".join(app_message_lines)
                 print(f"{app_title}\n{app_message}")
+
+                # Create the minutely rain graph
+                minute_list = []
+                rain_chance_list = []
+                number_of_minutes = 60
+                for index, minute in enumerate(minutely_weather_data):
+                    if index == number_of_minutes:
+                        break
+                    minute_list.append(index)
+                    rain_chance_list.append(minute["precipProbability"] * 100)
+
+                # Plot the graph
+                plt.figure()
+                plt.grid()
+                plt.ylim(0, 100)
+                plt.xlim(0, number_of_minutes)
+                plt.fill_between(minute_list, rain_chance_list)
+                plt.title(app_title)
+                plt.xlabel("Minutes")
+                plt.ylabel("Chance of rain")
+                plt.plot(minute_list, rain_chance_list, linewidth=3.0)
+                plt.savefig("rain_graph.png")
 
                 # Send the message to the Apprise services
                 app.notify(body=app_message, title=app_title, attach="rain_graph.png")
