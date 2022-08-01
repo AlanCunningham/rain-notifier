@@ -41,10 +41,10 @@ def main():
         # Retrieve weather for the next 10 minutes
         minutely_weather = get_weather()["minutely"]
         minutely_weather_data = minutely_weather["data"]
-        next_ten_minutes = minutely_weather_data[:10]
+        rain_check_window = minutely_weather_data[:12]
 
         # Find out when rain is starting
-        for index, minute in enumerate(next_ten_minutes):
+        for index, minute in enumerate(rain_check_window):
             print(minute)
 
             # If debugging is True, force rain to start in 5 minutes
