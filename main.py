@@ -113,7 +113,11 @@ def main():
                     precipitation_type = "Rain"
 
                 # Build the message
-                app_title = f"{precipitation_type} starting in {rain_starting_time_difference_mins} minutes"
+                if rain_starting_time_difference_mins > 1:
+                    duration_text = f"in {rain_starting_time_difference_mins} minutes"
+                else:
+                    duration_text = "now"
+                app_title = f"{precipitation_type} starting {duration_text}"
                 app_message_lines = [
                     f"Duration: {rain_stopping_time_difference_mins} minutes",
                     f"Probabiity: {rain_probability}%",
