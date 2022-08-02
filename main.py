@@ -80,7 +80,7 @@ def main():
                         if index < 20:
                             minute["precipProbability"] = 0.7
                         else:
-                            minute["precipProbability"] = 0.3
+                            minute["precipProbability"] = rain_chance_threshold - 0.1
 
                     if minute["precipProbability"] < rain_chance_threshold:
                         rain_stopping_index = index
