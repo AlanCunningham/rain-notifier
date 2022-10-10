@@ -50,10 +50,8 @@ apprise_services = [
 ```
 
 # Checking for rain
-By default, the program checks for rain every 10 minutes, looking at each minute
-over the next 10 minutes.
+By default, the program checks for rain every 10 minutes.  If rain is predicted to start in the next 10-12 minutes, a notification is sent to the list of Apprise services.
 
-If rain is detected in this window, a notification is sent to the list of Apprise services.
 It'll look something like this:
 > **Rain starting in 11 minutes**
 >
@@ -63,4 +61,4 @@ It'll look something like this:
 >
 > ![rain_2](https://user-images.githubusercontent.com/9663408/194845711-3d8f5795-de5b-47f1-91ef-3b5280b94127.jpg)
 
-You might notice the first notification doesn't always match the DarkSky summary in the graph.  While it's mostly similar, the DarkSky summary is likely to be more accurate.
+You might notice the first notification doesn't always match the title of the graph (the DarkSky-generated summary text).  While it's mostly similar, the DarkSky summary text is likely to be more accurate.
