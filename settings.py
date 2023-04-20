@@ -1,5 +1,5 @@
 # Weather API settings
-endpoint = "https://api.darksky.net/forecast"
+endpoint = "https://api.pirateweather.net/forecast"
 api_key = ""
 latitude = ""
 longitude = ""
