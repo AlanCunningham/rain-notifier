@@ -4,6 +4,8 @@ Frequently checks the weather and sends a notification to your favourite
 services [(using Apprise](https://github.com/caronc/apprise)) when it's about to start
 raining.
 
+![rain_1](https://user-images.githubusercontent.com/9663408/194845544-17292f9b-a71f-4780-9ee6-ae1fc97f36df.jpg)
+
 ☔ **This project requires a Dark Sky developer account.  Dark Sky will be
 shutting down at some point and they aren't accepting new sign ups. When that
 happens, I'll probably port this project to another weather source.**
@@ -48,13 +50,15 @@ apprise_services = [
 ```
 
 # Checking for rain
-By default, the program checks for rain every 10 minutes, looking at each minute
-over the next 10 minutes.
+By default, the program checks for rain every 10 minutes.  If rain is predicted to start in the next 10-12 minutes, a notification is sent to the list of Apprise services.
 
-If rain is detected in this window, a notification is sent to the list of Apprise services.
 It'll look something like this:
-> **Rain starting in 6 minutes**
+> **Rain starting in 11 minutes**
 >
-> Duration: 40 minutes
+> Duration: 8 minutes
 >
-> Probability: 55% chance
+> Probability: 27% chance
+>
+> ![rain_2](https://user-images.githubusercontent.com/9663408/194845711-3d8f5795-de5b-47f1-91ef-3b5280b94127.jpg)
+
+You might notice the first notification doesn't always match the title of the graph (the DarkSky-generated summary text).  While it's mostly similar, the DarkSky summary text is likely to be more accurate.
