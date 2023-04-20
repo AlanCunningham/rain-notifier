@@ -6,9 +6,7 @@ raining.
 
 ![rain_1](https://user-images.githubusercontent.com/9663408/194845544-17292f9b-a71f-4780-9ee6-ae1fc97f36df.jpg)
 
-☔ **This project requires a Dark Sky developer account.  Dark Sky will be
-shutting down at some point and they aren't accepting new sign ups. When that
-happens, I'll probably port this project to another weather source.**
+☔ **This project requires a [Pirate Weather](https://docs.pirateweather.net/en/latest/) developer account.**
 
 ## Hardware
 - Personally, I have this running on a Raspberry Pi (any model should do)
@@ -21,12 +19,12 @@ $ source rain_notifier_venv/bin/activate
 (rain_notifier_venv) $ pip install -r requirements.txt
 ```
 - Open settings.py and enter your:
-  - Your Dark Sky API key
+  - Your Pirate Weather API key
   - Latitude
   - Longitude
   - Preferred units of measurement
 
-Units of measurement options, from https://darksky.net/dev/docs:
+Units of measurement options, from the old Dark Sky docs:
 ``` 
 auto: automatically select units based on geographic location
 ca: same as si, except that windSpeed is in kilometers per hour
@@ -60,5 +58,3 @@ It'll look something like this:
 > Probability: 27% chance
 >
 > ![rain_2](https://user-images.githubusercontent.com/9663408/194845711-3d8f5795-de5b-47f1-91ef-3b5280b94127.jpg)
-
-You might notice the first notification doesn't always match the title of the graph (the DarkSky-generated summary text).  While it's mostly similar, the DarkSky summary text is likely to be more accurate.
